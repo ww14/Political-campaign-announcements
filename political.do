@@ -7,6 +7,8 @@
 clear all
 cd E:\
 set more off
+capture log close
+log using political.log, replace
 ssc install ciplot 
 
 *open dataset
@@ -69,3 +71,5 @@ twoway scatter follower_increase day_from_event, mcolor("120") if video==0 ///
   ||  lfit follower_increase day_from_event if day_from_event<0 & video==1 ///
   ||  lfit follower_increase day_from_event if day_from_event>=0 & video==0 ///
   || lfit follower_increase day_from_event if day_from_event>=0 & video==1
+
+cap log close
